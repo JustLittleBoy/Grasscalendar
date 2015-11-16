@@ -36,7 +36,7 @@
 					CNdayNames:[ '一', '二', '三', '四', '五', '六', '日' ],
 					onClick:function(options){
 						//点击触发的事件
-						
+						$(options.clickTdDay).toggleClass(obj.options.currentChoseClass);
 					},
 					initData:function(Obj,options){
 						//初始化数据操作

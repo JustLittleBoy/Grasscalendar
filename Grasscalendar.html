@@ -54,6 +54,10 @@ body{font:16px/1.6em Arial,Geneva,Helvetica,sans-serif}
 <div id="calendar">
   This is Calendar Widget
 </div>
+
+<div id="calendar2">
+  This is Calendar Widget
+</div>
 <script src="js/jq.js"></script>
 <script src="js/GrassCalendar.js"></script>
 <script>
@@ -73,13 +77,14 @@ var obj=$("#calendar").GrassCalendar({
 	eachTdClass:"tdday",//每一个可操作的td的class
 	dataValues:{"2015-10-22":true},//初始化数据，不初始化此项不设置或设置为[]，初始化操作就是给指定数据加上选择的样式
 	onClick:function(options){
-		$(options.clickTdDay).toggleClass('GrassCalendar-chose');
+		$(options.clickTdDay).toggleClass(obj.options.currentChoseClass);
+		//$(options.clickTdDay).toggleClass('GrassCalendar-chose');
 		//console.log(obj.getChoseDay(true));
 		//获得选中的日期数据，返回的数据格式是{"2015-10-21":true,"2015-10-22":false} true表示选中，false表示未选中
 		//传值为true 只返回选中的，否则返回所有经过页面的值
 		//obj.changeMonth('11','2015');
 		//转到指定月，受最大最小月限制
-		console.log(obj);
+		//console.log(obj);
 	},
 	initData:function(Obj,options){
 		//对每个td进行样式初始化操作
