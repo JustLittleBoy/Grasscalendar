@@ -1,0 +1,96 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<style media="screen">
+body{font:16px/1.6em Arial,Geneva,Helvetica,sans-serif}
+</style>
+<!-- 插件需要的样式 -->
+ <style>
+	.GrassCalendar-chose{
+		background:#FF9933!important;
+	}
+	.GrassCalendar-current-day{
+		background:#99cc99
+	}
+	.GrassCalendar{
+		border-right:1px solid #999;
+		border-top:1px solid #999
+	}
+	.GrassCalendar td,th{
+		border-left:1px solid #999;
+		border-bottom:1px solid #999;
+		width:120px;padding:10px 0;
+		text-align:center
+	}
+	.GrassCalendar th{
+		background:#66cccc;
+		color:#fff
+	}
+	.GrassCalendar .other-month{
+		background:#eee
+	}
+	.GrassCalendar .current-month{
+		
+	}
+	.GrassCalendar .tdday{
+		
+	}
+	.GrassCalendar tbody tr td p a{
+		text-decoration:none;
+	}
+	.GrassCalendar tbody tr td p  a:link,a:visited{
+		color:#039;text-decoration:none;
+	}
+	.GrassCalendar tbody tr td p a:hover,a:active{
+    	color:#000;text-decoration:none;
+    }
+	.GrassCalendar .GDChangeMonth{
+		cursor: pointer;
+	}
+</style>
+</head>
+<body>
+<div id="calendar">
+  This is Calendar Widget
+</div>
+<script src="js/jq.js"></script>
+<script src="js/GrassCalendar.js"></script>
+<script>
+var arr=new Array();
+
+var obj=$("#calendar").GrassCalendar({
+	//month: 10,//初始化月
+	//year: 2015,//初始化年
+	day_type:'US',//使用周格式
+	min_month:"2015-08",// 最小月
+	max_month:'2016-01',// 最大月
+	currentDayClass:'GrassCalendar-current-day',//今天的样式
+	currentChoseClass:"GrassCalendar-chose",//选中是显示的养殖
+	tableId:"GrassCalendar",//插件生成的tableid
+	GDClass:"GrassCalendar",//插件生成的table样式，请保证该样式唯一
+	allActive:false,//上个月和下个月是否可以点选择
+	eachTdClass:"tdday",//每一个可操作的td的class
+	dataValues:{"2015-10-22":true},//初始化数据，不初始化此项不设置或设置为[]，初始化操作就是给指定数据加上选择的样式
+	onClick:function(options){
+		$(options.clickTdDay).toggleClass('GrassCalendar-chose');
+		//console.log(obj.getChoseDay(true));
+		//获得选中的日期数据，返回的数据格式是{"2015-10-21":true,"2015-10-22":false} true表示选中，false表示未选中
+		//传值为true 只返回选中的，否则返回所有经过页面的值
+		//obj.changeMonth('11','2015');
+		//转到指定月，受最大最小月限制
+		console.log(obj);
+	},
+	initData:function(Obj,options){
+		//对每个td进行样式初始化操作
+		$('.'+options.GDClass+' .'+options.eachTdClass).each(function(){
+			if($(this).attr('date-time')=='2015-10-21'){
+				//$(this).addClass(options.currentChoseClass);
+				//console.log(options.currentChoseClass);
+			}
+		});
+	}
+ });
+</script>
+</body>
+</html>
