@@ -35,7 +35,7 @@ A  calendar select widget  日历选择插件<br/>
 			//obj.changeMonth('11','2015');
 			//转到指定月，受最大最小月限制
 			//console.log(obj);
-	},
+			},
 		initData:function(Obj,options){
 			//对当显示月每个td进行样式初始化操作
 			$('.'+options.GDClass+' .'+options.eachTdClass).each(function(){
