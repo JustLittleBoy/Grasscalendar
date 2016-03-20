@@ -24,7 +24,8 @@ A  calendar select widget  日历选择插件<br/>
 		GDClass:"GrassCalendar",//插件生成的table样式，请保证该样式唯一
 		allActive:false,//上个月和下个月是否可以点选择
 		eachTdClass:"tdday",//每一个可操作的td的class
-		dataValues:{"2016-01-01":true},//初始化数据，不初始化此项不设置或设置为[]，初始化操作就是给指定数据加上选择的样式 2016-01-01 被选中
+		dataValues:{"2016-01-01":true},//初始化数据，不初始化此项不设置或设置为[]
+		//初始化操作就是给指定数据加上选择的样式 2016-01-01 被选中
 		onClick:function(options){
 			$(options.clickTdDay).toggleClass(obj.options.currentChoseClass);//最后选的数据按照 currentChoseClass 样式进行确定
 			//$(options.clickTdDay).toggleClass('GrassCalendar-chose');
@@ -41,8 +42,8 @@ A  calendar select widget  日历选择插件<br/>
 				if($(this).attr('date-time')=='2016-03-01'){
 					$(this).addClass(options.currentChoseClass);
 					//console.log(options.currentChoseClass);
-				}
-			});
-		}
+					}
+				});
+			}
 	 		});
 		</script>
